@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/default_nav"
+    android:id="@+id/calculator_default_nav">
+
+<fragment
+        android:id="@+id/default_nav"
+        android:name="app.keyboardly.addon.calculator.app.CalculatorFragment"
+        android:label="@string/title_calculator"
+        tools:layout="@layout/fragment_calculator"/>
+</navigation>

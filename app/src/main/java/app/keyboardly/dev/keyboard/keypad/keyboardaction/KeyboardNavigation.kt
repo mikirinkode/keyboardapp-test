@@ -215,6 +215,16 @@ open class KeyboardNavigation(
             nameString = "Sample",
             iconUrl = "https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-dummy-robotics-flaticons-flat-flat-icons.png")
         )
+        navigationList.add(
+            NavigationMenuModel(
+            2,
+            R.string.nav_calculator,
+            null,
+            featurePackageId = "app.keyboardly.addon.calculator",
+            featureNameId = "calculator",
+            nameString = "Calculator",
+            iconUrl = "https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-dummy-robotics-flaticons-flat-flat-icons.png")
+        )
         return navigationList
     }
 

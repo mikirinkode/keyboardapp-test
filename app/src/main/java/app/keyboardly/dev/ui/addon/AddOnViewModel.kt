@@ -13,9 +13,7 @@ class AddOnViewModel : ViewModel() {
 
 
     private fun listAddOn(): List<AddOnModel> {
-        val list = mutableListOf<AddOnModel>()
-
-        list.add(
+        val list = listOf(
             AddOnModel(
                 21,
                 "sample",
@@ -27,7 +25,19 @@ class AddOnViewModel : ViewModel() {
                 "https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-dummy-robotics-flaticons-flat-flat-icons.png",
                 0,
                 SAMPLE_ID,
-            )
+            ),
+            AddOnModel(
+                22,
+                "calculator",
+                "Calculator",
+                "Perform calculations directly from you keyboard",
+                "Keyboardly",
+                "https://keyboardly.app",
+                /*dummy icon*/ // TODO ICON
+                "https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-dummy-robotics-flaticons-flat-flat-icons.png",
+                0,
+                CALCULATOR_ID,
+            ),
         )
 
         return list

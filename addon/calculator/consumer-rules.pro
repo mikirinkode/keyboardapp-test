@@ -1,30 +1,3 @@
-# Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in /home/iwo/android-sdk/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# Add any project specific keep options here:
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
-# Keep native methods
--keepclassmembers class * {
-    native <methods>;
-}
-
--keep class android.support.v7.widget.** { *; }
--keep class android.widget.** { *; }
-
-
 ##---------------Begin: proguard configuration for Gson ----------
 # Gson uses generic type information stored in a class file when working with fields. Proguard
 # removes such information by default, so configure it to keep all of it.
@@ -54,6 +27,9 @@
 @retrofit2.http.* <methods>;
 }
 
+# Ignore annotation used for build tooling.
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+
 # Ignore JSR 305 annotations for embedding nullability information.
 -dontwarn javax.annotation.**
 
@@ -61,6 +37,7 @@
 -dontwarn kotlin.Unit
 
 # Top-level functions that can only be used by Kotlin.
+-dontwarn retrofit2.KotlinExtensions
 -dontwarn retrofit2.KotlinExtensions.*
 
 # With R8 full mode, it sees no subtypes of Retrofit interfaces since they are created with a Proxy
@@ -70,8 +47,8 @@
 
 -dontwarn kotlinx.**
 
-# keep di class
--keep class app.keyboardly.addon.sample.di.** { *; }
+# keep class data
+-keep class app.keyboardly.addon.calculator.** { *; }
 -keep class app.keyboardly.addon.calculator.di.** { *; }
 
 -dontwarn com.google.errorprone.annotations.**
@@ -86,14 +63,6 @@
 
 
 #noinspection ShrinkerUnresolvedReference
--keep class app.keyboardly.addon.sample.DynamicFeatureImpl {
-    #noinspection ShrinkerUnresolvedReference
-    app.keyboardly.addon.sample.DynamicFeatureImpl$Provider Provider;
-}
--keep class app.keyboardly.addon.sample.DynamicFeatureImpl$Provider {
-    *;
-}
-#noinspection ShrinkerUnresolvedReference
 -keep class app.keyboardly.addon.calculator.DynamicFeatureImpl {
     #noinspection ShrinkerUnresolvedReference
     app.keyboardly.addon.calculator.DynamicFeatureImpl$Provider Provider;
@@ -102,15 +71,21 @@
     *;
 }
 
-#-------------------------------------------------
-# JetPack Navigation
-# This fixes: Caused by: androidx.fragment.app.Fragment$InstantiationException:
-# Unable to instantiate fragment androidx.navigation.fragment.NavHostFragment: make sure class name exists
-#-------------------------------------------------
--keepnames class androidx.navigation.fragment.NavHostFragment
--keepnames class androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
--keep class androidx.navigation.fragment.NavHostFragment
--keep class androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
+# OkHttp platform used only on JVM and when Conscrypt and other security providers are available.
+-dontwarn okhttp3.internal.platform.**
+-dontwarn org.conscrypt.**
+-dontwarn org.bouncycastle.**
+-dontwarn org.openjsse.**
 
--keep class * extends androidx.support.v4.app.Fragment{}
--keep class * extends androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment{}
+#-keep class app.keyboardly.addon.calculator.data.** { *; }
+#-keep class app.keyboardly.addon.calculator.data.model.** { *; }
+#-keep class app.keyboardly.addon.calculator.data.model.Province
+#-keep class app.keyboardly.addon.calculator.data.local.** { *; }
+#-keep class app.keyboardly.addon.calculator.data.local.dao.**{ *; }
+#-keep class app.keyboardly.addon.calculator.data.local.dao.ProvinceDao_Impl
+#-keep class app.keyboardly.addon.calculator.data.remote.** { *; }
+#-keep class app.keyboardly.addon.calculator.data.remote.ProvinceService
+
+-keep class * extends androidx.room.RoomDatabase
+-keep @androidx.room.Entity class *
+-dontwarn androidx.room.paging.**

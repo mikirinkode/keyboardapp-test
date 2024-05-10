@@ -16,6 +16,7 @@ import app.keyboardly.lib.navigation.NavigationMenuModel
 import timber.log.Timber
 
 const val SAMPLE_ID = "app.keyboardly.sample"
+const val CALCULATOR_ID = "app.keyboardly.calculator"
 
 class AddOnFragment : Fragment() {
 
@@ -67,11 +68,10 @@ class AddOnFragment : Fragment() {
     }
 
     private fun getListNavigation(): MutableList<Navigation> {
-        val list = mutableListOf<Navigation>()
-
-        list.add(
-            Navigation(SAMPLE_ID,
-                R.id.sample_default_nav))
+        val list = mutableListOf(
+            Navigation(SAMPLE_ID, R.id.sample_default_nav),
+            Navigation(CALCULATOR_ID, R.id.calculator_default_nav),
+        )
 
         return list
     }

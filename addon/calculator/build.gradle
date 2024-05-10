@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.dynamic-feature'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 android {
     namespace 'app.keyboardly.addon.calculator'
@@ -9,6 +10,19 @@ android {
     defaultConfig {
         minSdk 24
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // information for versioning
+        buildConfigField "int", "ADD_ON_VERSION", "1" // always increase it on update
+        buildConfigField "String", "ADD_ON_VERSION_NAME", "\"1.0\""
+        buildConfigField "String", "ADD_ON_ID", "\"calculator\"" // should same with module name
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
@@ -21,8 +35,19 @@ android {
 
 dependencies {
     implementation project(":app")
+    implementation project(":libraries:style")
+    implementation project(":libraries:actionview")
+    
     implementation 'androidx.core:core-ktx:1.13.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation "androidx.databinding:viewbinding:$view_binding_version"
+
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+
+    implementation "com.jakewharton.timber:timber:5.0.1"
 }

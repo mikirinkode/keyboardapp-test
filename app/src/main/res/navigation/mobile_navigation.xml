@@ -24,4 +24,10 @@
         app:graphResName="sample_default_nav"
         app:graphPackage="${applicationId}.sample"/>
 
+    <include-dynamic
+        android:id="@+id/calculator_default_nav"
+        app:moduleName="calculator"
+        app:graphResName="calculator_default_nav"
+        app:graphPackage="${applicationId}.calculator"/>
+
 </navigation>
