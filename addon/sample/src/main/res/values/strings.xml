@@ -1,0 +1,22 @@
+<resources>
+    <string name="hello_blank_fragment">Hello this is sample fragment.\nIt\'s possible to custom it just like
+    common fragment app.</string>
+    <string name="submit">Submit</string>
+    <string name="txt_reset">reset</string>
+    <string name="gender">Gender</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="campaign">Campaign</string>
+    <string name="search_campaign">Search campaign</string>
+    <string name="shopping">Shopping</string>
+    <string name="voucher">Voucher</string>
+    <string name="welcome">Welcome</string>
+    <string name="input_your_name">input name</string>
+    <string name="top_view">Top View</string>
+    <string name="input_number">input number</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="amount_cash">amount cash</string>
+    <string name="note">note</string>
+    <string name="province">Province</string>
+    <string name="discount">discount (%)</string>
+</resources>

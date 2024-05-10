@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!--@formatter:off-->
+<resources>
+
+    <declare-styleable name="KeyboardTheme">
+        <!-- style for action keyboard-->
+        <attr name="actionKeyboardStyle" format="reference" />
+
+        <!-- style for action keyboard-->
+        <attr name="footerActionKeyboardStyle" format="reference" />
+
+        <!-- text style for action keyboard-->
+        <attr name="textActionKeyboardStyle" format="reference" />
+
+        <!-- text style for action keyboard-->
+        <attr name="mainEditTextActionKeyboardStyle" format="reference" />
+
+        <!-- text style for action keyboard-->
+        <attr name="previewEditTextActionKeyboardStyle" format="reference" />
+
+        <!-- chip style for action keyboard-->
+        <attr name="chipActionKeyboardStyle" format="reference" />
+
+        <!-- white button style for action keyboard-->
+        <attr name="whiteButtonActionKeyboardStyle" format="reference" />
+
+        <!-- white button style for action keyboard-->
+        <attr name="datePickerKeyboardStyle" format="reference" />
+
+        <!-- calculator style for action keyboard-->
+        <attr name="tenorLogoStyle" format="reference" />
+
+        <attr name="darkMode" format="boolean" />
+        <attr name="borderMode" format="boolean" />
+        <attr name="brandColor" format="color" />
+    </declare-styleable>
+</resources>
