@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import app.keyboardly.addon.calculator.compose.color.BackgroundColor
 import app.keyboardly.addon.calculator.compose.color.DangerColor
 import app.keyboardly.addon.calculator.compose.color.PrimaryColor500
@@ -36,12 +37,12 @@ fun CalculatorKeyItem(
 ) {
     Box(
         modifier = modifier
-            .padding(4.dp)
+            .padding(2.dp)
             .background(
                 color = if (functionType == CalculatorFunctionType.EQUAL) PrimaryColor500 else BackgroundColor,
-                shape = MaterialTheme.shapes.medium
+                shape = MaterialTheme.shapes.small
             )
-            .clip(MaterialTheme.shapes.medium)
+            .clip(MaterialTheme.shapes.small)
             .clickable(onClick = onClick)
     ) {
         if (keyIcon != null) {
@@ -50,7 +51,7 @@ fun CalculatorKeyItem(
                 contentDescription = functionType.toString(),
                 tint = PrimaryColor500,
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(vertical = 6.dp, horizontal = 16.dp)
                     .size(18.dp)
                     .align(Alignment.Center),
             )
@@ -61,6 +62,11 @@ fun CalculatorKeyItem(
                     FontWeight.Black
                 } else {
                     FontWeight.Bold
+                },
+                fontSize = if (functionType == CalculatorFunctionType.ALL_CLEAR) {
+                    12.sp
+                } else {
+                    16.sp
                 },
                 color = if (keyType == CalculatorKeyType.FUNCTION) {
                     if (functionType == CalculatorFunctionType.ALL_CLEAR) {
@@ -75,7 +81,7 @@ fun CalculatorKeyItem(
                 },
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(vertical = 6.dp, horizontal = 16.dp)
                     .align(Alignment.Center),
             )
         }

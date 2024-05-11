@@ -1,7 +1,10 @@
 package app.keyboardly.addon.calculator.compose.component
 
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -17,7 +20,9 @@ fun CalculatorRowLayout(
     modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(IntrinsicSize.Max)
     ) {
         keyRowList.forEach {
             CalculatorKeyItem(
@@ -26,7 +31,9 @@ fun CalculatorRowLayout(
                 keyType = it.keyType,
                 functionType = it.functionType,
                 onClick = { onClick(it.key, it.keyType, it.functionType) },
-                modifier = modifier.weight(1f)
+                modifier = modifier
+                    .weight(1f)
+                    .fillMaxHeight()
             )
         }
     }
@@ -35,5 +42,6 @@ fun CalculatorRowLayout(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun CalculatorRowLayoutPreview() {
-    CalculatorRowLayout(keyRowList = CalculatorKeyData.keys, onClick = { _, _, _ -> })
+    val chunkedList = CalculatorKeyData.keys.chunked(5)
+    CalculatorRowLayout(keyRowList = chunkedList.last(), onClick = { _, _, _ -> })
 }
