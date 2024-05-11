@@ -27,10 +27,8 @@
             android:text="@string/basic_calculator" />
     </LinearLayout>
 
-    <TextView
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/composeView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="?textActionKeyboardStyle"
-        android:padding="@dimen/_10sdp"
-        android:text="Hello There" />
+        android:layout_height="wrap_content"/>
 </LinearLayout>
