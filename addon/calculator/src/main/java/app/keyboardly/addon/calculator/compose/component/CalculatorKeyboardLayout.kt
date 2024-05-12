@@ -12,22 +12,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalTextInputService
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -49,6 +45,7 @@ fun CalculatorKeyboardLayout(
     modifier: Modifier = Modifier,
     viewModel: CalculatorViewModel
 ) {
+    // Split List into 5 items per row
     val chunkedList = keyList.chunked(5)
     val numText = viewModel.numText
     val calculationResultPreview = viewModel.calculationResultPreview
@@ -62,24 +59,13 @@ fun CalculatorKeyboardLayout(
         Column(
             modifier = Modifier.align(Alignment.Center)
         ) {
-            CompositionLocalProvider(
-                LocalTextInputService provides null
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    BasicTextField(
-                        value = numText.value,
-                        onValueChange = {},
-                        textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.End),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .align(Alignment.CenterEnd)
-                            .horizontalScroll(rememberScrollState()),
-                    )
-                }
-            }
+            Text(
+                numText.value,
+                textAlign = TextAlign.End,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+            )
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
@@ -105,8 +91,10 @@ fun CalculatorKeyboardLayout(
                 ) {
                     Text(
                         calculationResultPreview.value,
+                        textAlign = TextAlign.End,
                         fontSize = 18.sp,
                         modifier = Modifier
+                            .fillMaxWidth()
                             .padding(horizontal = 16.dp, vertical = 8.dp)
 
                     )

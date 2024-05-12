@@ -33,8 +33,7 @@ class AddOnViewModel : ViewModel() {
                 "Perform calculations directly from you keyboard",
                 "Keyboardly",
                 "https://keyboardly.app",
-                /*dummy icon*/ // TODO ICON
-                "https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-dummy-robotics-flaticons-flat-flat-icons.png",
+                "https://cdn2.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/1024/Calculator_5122x.png",
                 0,
                 CALCULATOR_ID,
             ),

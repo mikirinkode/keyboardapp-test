@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="basic_calculator">Basic Calculator</string>
+    <string name="desc">A Powerful Calculator that perform calculations directly from you keyboard with features such as Addition, Subtraction, Multiplication, Division</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -223,7 +223,7 @@ open class KeyboardNavigation(
             featurePackageId = "app.keyboardly.addon.calculator",
             featureNameId = "calculator",
             nameString = "Calculator",
-            iconUrl = "https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-dummy-robotics-flaticons-flat-flat-icons.png")
+            iconUrl = "https://cdn2.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/1024/Calculator_5122x.png")
         )
         return navigationList
     }
