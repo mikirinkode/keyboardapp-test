@@ -12,13 +12,11 @@ data class CalculatorKeyData(
 ) {
     companion object {
         /**
-         * ORDER in GRID VIEW:
-         * SEVEN * EIGHT * NINE * BACKSPACE_FUNCTION  * MULTIPLY_FUNCTION
-         * FOUR * FIVE * SIX * BRACKET_LEFT  * SUBTRACT_FUNCTION
-         * ONE * TWO * THREE * BRACKET_RIGHT * DIVISION_FUNCTION
-         * ALL_CLEAR_FUNCTION * ZERO * DOT * ADD_FUNCTION * EQUAL_FUNCTION
+         * First Row: SEVEN * EIGHT * NINE * BACKSPACE_FUNCTION  * MULTIPLY_FUNCTION
+         * Second Row: FOUR * FIVE * SIX * BRACKET_LEFT  * SUBTRACT_FUNCTION
+         * Third Row: ONE * TWO * THREE * BRACKET_RIGHT * DIVISION_FUNCTION
+         * Fourth Row: ALL_CLEAR_FUNCTION * ZERO * DOT * ADD_FUNCTION * EQUAL_FUNCTION
          */
-
         val keys = listOf(
             CalculatorKeyData("7", CalculatorKeyType.NUMBER),
             CalculatorKeyData("8", CalculatorKeyType.NUMBER),
