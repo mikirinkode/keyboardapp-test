@@ -15,15 +15,21 @@
 
 ## Directory Structure
 `actions/basic/`: Contains the action view for the calculator
+
 `app/`: Contains the main activity and the main view for the calculator
 
 `compose/`: Contains the Jetpack Compose Code
+
 `compose/color/`: Contains the color values for the app
+
 `compose/component/`: Contains the custom component for the app
+
 `compose/viewmodel/`: Contains the view model for the app that handle the logic
 
 `data/`: Contains the data related code
+
 `data/constant/`: Contains the constant values that used in the app
+
 `data/model/`: Contains the data model for the app
 
 `di/`: Contains the dependency injection handler
