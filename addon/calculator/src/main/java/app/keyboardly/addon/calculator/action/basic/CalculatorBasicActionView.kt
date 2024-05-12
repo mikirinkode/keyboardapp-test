@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import app.keyboardly.addon.calculator.compose.component.CalculatorKeyboardLayout
+import app.keyboardly.addon.calculator.compose.viewmodel.CalculatorViewModel
 import app.keyboardly.addon.calculator.data.model.CalculatorKeyData
 import app.keyboardly.addon.calculator.databinding.CalculatorBasicLayoutBinding
 import app.keyboardly.lib.KeyboardActionDependency
@@ -31,7 +32,9 @@ class CalculatorBasicActionView(
                         },
                         onInvalidFormat = {
                             Toast.makeText(context, "Invalid format", Toast.LENGTH_SHORT).show()
-                        })
+                        },
+                        viewModel = CalculatorViewModel()
+                    )
                 }
             }
         }
